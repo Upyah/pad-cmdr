@@ -1,12 +1,16 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import LaunchpadEditor from '@/components/LaunchpadEditor';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-launchpad-bg text-launchpad-text">
+      <header className="p-6 border-b border-launchpad-button">
+        <h1 className="text-2xl font-bold bg-gradient-to-r from-launchpad-accent1 to-launchpad-accent2 inline-block text-transparent bg-clip-text">
+          Launchpad Mini MK1 Configuration
+        </h1>
+      </header>
+      <main className="container mx-auto py-8">
+        <LaunchpadEditor />
+      </main>
     </div>
   );
 };
