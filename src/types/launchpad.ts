@@ -3,6 +3,7 @@ export interface LaunchpadButton {
   x: number;
   y: number;
   action: ButtonAction;
+  type: 'square' | 'round';
 }
 
 export interface ButtonAction {

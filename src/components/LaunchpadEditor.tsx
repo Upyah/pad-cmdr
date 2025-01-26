@@ -14,9 +14,10 @@ const LaunchpadEditor = () => {
           id: `${x}-${y}`,
           x,
           y,
+          type: 'square',
           action: {
             type: 'midi',
-            note: x + y * 8,
+            note: x + y * 16,
             velocity: 127,
           },
         });
