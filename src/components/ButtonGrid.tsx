@@ -9,10 +9,10 @@ interface ButtonGridProps {
 }
 
 const ButtonGrid = ({ buttons, selectedButton, onSelectButton }: ButtonGridProps) => {
-  // Generate column numbers (1-8)
-  const columnNumbers = Array.from({ length: 8 }, (_, i) => i + 1);
-  // Generate row letters (A-H)
-  const rowLetters = Array.from({ length: 8 }, (_, i) => String.fromCharCode(65 + i));
+  // Generate column numbers (0-7 to match hardware)
+  const columnNumbers = Array.from({ length: 8 }, (_, i) => i);
+  // Generate row letters (1-8 to match hardware)
+  const rowLetters = Array.from({ length: 8 }, (_, i) => 8 - i);
 
   return (
     <div className="relative">
@@ -26,17 +26,17 @@ const ButtonGrid = ({ buttons, selectedButton, onSelectButton }: ButtonGridProps
       </div>
 
       <div className="flex">
-        {/* Row letters */}
+        {/* Row numbers (not letters) */}
         <div className="flex flex-col mr-2">
-          {rowLetters.map((letter) => (
-            <div key={`row-${letter}`} className="h-12 flex items-center text-launchpad-text">
-              {letter}
+          {rowLetters.map((num) => (
+            <div key={`row-${num}`} className="h-12 flex items-center text-launchpad-text">
+              {num}
             </div>
           ))}
         </div>
 
         <div className="relative">
-          {/* Top row of round buttons - now aligned with grid columns */}
+          {/* Top row of round buttons - aligned with grid columns */}
           <div className="absolute -top-16 left-4 flex gap-2">
             {Array.from({ length: 8 }, (_, i) => (
               <button
@@ -76,7 +76,7 @@ const ButtonGrid = ({ buttons, selectedButton, onSelectButton }: ButtonGridProps
             ))}
           </div>
 
-          {/* Right column of round buttons - now aligned with grid rows */}
+          {/* Right column of round buttons - aligned with grid rows */}
           <div className="absolute -right-16 top-4 flex flex-col gap-2">
             {Array.from({ length: 8 }, (_, i) => (
               <button
