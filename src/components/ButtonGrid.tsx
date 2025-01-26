@@ -9,10 +9,10 @@ interface ButtonGridProps {
 }
 
 const ButtonGrid = ({ buttons, selectedButton, onSelectButton }: ButtonGridProps) => {
-  // Generate column numbers (0-7 to match hardware)
-  const columnNumbers = Array.from({ length: 8 }, (_, i) => i);
-  // Generate row letters (1-8 to match hardware)
-  const rowLetters = Array.from({ length: 8 }, (_, i) => 8 - i);
+  // Generate column numbers (1-8 to match hardware)
+  const columnNumbers = Array.from({ length: 8 }, (_, i) => i + 1);
+  // Generate row letters (A-H to match hardware)
+  const rowLetters = Array.from({ length: 8 }, (_, i) => String.fromCharCode(65 + i));
 
   return (
     <div className="relative">
@@ -26,11 +26,11 @@ const ButtonGrid = ({ buttons, selectedButton, onSelectButton }: ButtonGridProps
       </div>
 
       <div className="flex">
-        {/* Row numbers (not letters) */}
+        {/* Row letters (A-H) */}
         <div className="flex flex-col mr-2">
-          {rowLetters.map((num) => (
-            <div key={`row-${num}`} className="h-12 flex items-center text-launchpad-text">
-              {num}
+          {rowLetters.map((letter) => (
+            <div key={`row-${letter}`} className="h-12 flex items-center text-launchpad-text">
+              {letter}
             </div>
           ))}
         </div>
