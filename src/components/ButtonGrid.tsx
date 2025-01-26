@@ -36,8 +36,8 @@ const ButtonGrid = ({ buttons, selectedButton, onSelectButton }: ButtonGridProps
         </div>
 
         <div className="relative">
-          {/* Top row of round buttons */}
-          <div className="absolute -top-16 left-0 flex gap-2">
+          {/* Top row of round buttons - now aligned with grid columns */}
+          <div className="absolute -top-16 left-4 flex gap-2">
             {Array.from({ length: 8 }, (_, i) => (
               <button
                 key={`top-${i}`}
@@ -76,7 +76,7 @@ const ButtonGrid = ({ buttons, selectedButton, onSelectButton }: ButtonGridProps
             ))}
           </div>
 
-          {/* Right column of round buttons */}
+          {/* Right column of round buttons - now aligned with grid rows */}
           <div className="absolute -right-16 top-4 flex flex-col gap-2">
             {Array.from({ length: 8 }, (_, i) => (
               <button
